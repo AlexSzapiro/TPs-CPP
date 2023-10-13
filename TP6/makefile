@@ -1,6 +1,9 @@
-all: main.o
-	g++ -o main main.o 
-main.o : utils.h main.cpp
+all: main.o pine.o
+	g++ -o main main.o pine.o
+main.o : utils.h tree.h pine.h main.cpp
 	g++ -c -Wall --std=c++17 main.cpp
+pine.o: tree.h pine.h pine.cpp
+	g++ -c -Wall --std=c++17 pine.cpp
 clean:
 	rm -rf *.o main
+
